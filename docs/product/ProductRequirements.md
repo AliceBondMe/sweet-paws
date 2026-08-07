@@ -52,7 +52,7 @@ Typical examples: one glucose measurement, insulin injection, feeding, medicatio
 
 Requirements:
 
-- Available from a floating `+` action.
+- Available as a modal dialog from a floating `+` action, preserving the current Journal context.
 - The user selects the event type.
 - The form displays only fields relevant to the selected event type.
 - Validation is specific to the selected event type.
@@ -103,7 +103,7 @@ Every journal entry can be edited.
 Requirements:
 
 - Every journal row provides an Edit action.
-- Edit opens the same form used for Single Event creation, pre-populated with existing event data.
+- Edit opens the same modal form used for Single Event creation, pre-populated with existing event data.
 - After saving, the journal updates immediately.
 - The user returns to the same journal view with filters, sorting, and scroll position preserved.
 - One event-form component supports both Create and Edit modes, avoiding duplicated UI and validation logic.
@@ -136,7 +136,7 @@ The first medication administration may be recorded by entering a free-text name
 
 - Initial weight is requested during pet setup but can be skipped if unknown.
 - Every later weight update creates a weight event with a measurement time and unit.
-- The dashboard shows the latest active weight and when it was measured.
+- The Journal and any basic Reports view show the latest active weight and when it was measured where relevant.
 - Weight values must not be silently converted or mixed with a different display unit in charts or exports.
 
 ### Glucose and insulin flow
@@ -158,6 +158,7 @@ CSV import accepts one documented Sweet Paws CSV format and follows this flow: s
 
 ### Export
 
+- Export opens as a short-lived modal dialog rather than a dedicated page.
 - CSV export supports the full journal or selected event types and date range.
 - JSON backup export includes the data necessary for future restore/import and a format version.
 - Export files state their timezone, units, filters, and generation time.
@@ -184,7 +185,7 @@ Given no saved medication exists for a pet, an owner enters `Gabapentin`, a dose
 
 ### Weight update
 
-Given a pet has an initial weight, an owner records a new weight. The journal displays the update at the chosen time and the dashboard updates its latest-weight summary.
+Given a pet has an initial weight, an owner records a new weight. The Journal displays the update at the chosen time and any latest-weight summary updates where shown.
 
 ### Timezone-confirmed import
 

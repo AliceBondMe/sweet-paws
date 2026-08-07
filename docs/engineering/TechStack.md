@@ -46,7 +46,7 @@ Vite provides the local development server and production build. Environment-spe
 
 ### React Router
 
-React Router manages application routes such as authentication, pet selection, dashboard, journal, batch entry, import, settings, and future reports. Routes that access pet data require both authenticated identity and authorisation checks through the data layer and Firestore security rules.
+React Router manages application routes such as authentication, pet selection, journal, routine entry, batch entry, import, reports, reminders, and settings. Short-lived Single Event/Edit and Export interactions are modal surfaces rather than primary routes. Routes that access pet data require both authenticated identity and authorisation checks through the data layer and Firestore security rules.
 
 ### CSS Modules and modern CSS
 

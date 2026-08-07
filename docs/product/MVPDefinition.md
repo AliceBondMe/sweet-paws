@@ -41,11 +41,10 @@ The MVP is designed primarily for an owner of a diabetic cat. The domain model m
 - Medication entry supports a free-text medication name and dose. After a medication has been entered, it is available for selection from that pet's medication dropdown on later entries.
 - Weight can be entered at setup and as a later journal event.
 
-### Review
+### Review and reports
 
-- Dashboard per selected pet with latest glucose, latest insulin, latest weight, next reminder, and today's timeline.
-- A basic glucose chart for a selected date range.
-- Journal filters and a readable chronological view on mobile and desktop.
+- Journal is the default pet home and provides filters and a readable chronological view on mobile and desktop.
+- A separate Reports destination is reserved for analytics; the MVP may provide a basic glucose chart for a selected date range.
 
 ### Reminders
 
@@ -85,7 +84,7 @@ The MVP is successful when an owner can:
 
 1. Set up a pet in a few minutes, including its starting weight, units, and timezone.
 2. Record common daily events in a few taps on a phone.
-3. See a trustworthy, chronological account of a day of care.
+3. See a trustworthy, chronological account of a day of care in the Journal.
 4. Review glucose readings over time without mixing units or losing their context.
 5. Import a prior CSV history without silently changing the intended dates or times.
 6. Export their own data without depending on Sweet Paws for permanent access to it.

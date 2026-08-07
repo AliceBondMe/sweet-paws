@@ -78,7 +78,7 @@ Memberships are the authoritative relationship for pet-scoped access. Convenienc
 - The default journal query is scoped to one pet and a bounded `occurredAtUtc` date range.
 - Results are ordered chronologically and paginated in the direction required by the journal's oldest-first display and initial latest-entry position.
 - Event-type filters are applied only for supported combinations; each combination is evaluated for required Firestore composite indexes before release.
-- The dashboard reads only the small set of latest/next data it needs, rather than subscribing to the whole journal.
+- Journal summary and Reports queries read only the bounded/latest data they need, rather than subscribing to the whole journal.
 - Pet lists are small and membership-scoped. Any denormalised user-to-pet index must be protected and kept consistent by a documented strategy.
 - Search remains limited in the MVP; Firestore is not treated as a general full-text search service.
 
@@ -115,7 +115,7 @@ The Firebase Local Emulator Suite is used for repository and Security Rules test
 - Rejection of access to another user's pet.
 - Rejection of forged `petId`, owner, or membership fields.
 - Allowed and rejected event create/edit/delete cases.
-- Query patterns used by journal, dashboard, and reminders.
+- Query patterns used by Journal, Reports, and Reminders.
 
 ## Open implementation decisions
 

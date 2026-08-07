@@ -10,6 +10,9 @@ Product scope, user workflows, and feature behaviour.
 - `product/ProductRequirements.md` — functional and non-functional requirements.
 - `product/InformationArchitecture.md` — navigation, routes, and page responsibilities.
 - `product/UserFlows.md` — critical end-to-end user journeys.
+- `product/NavigationAndInteractionModel.md` — persistent pages, modal workflows, and global UI.
+- `product/RoutingAndNavigation.md` — route groups and navigation/return-state rules.
+- `product/ComponentInventory.md` — planned reusable UI components.
 - `product/Import.md` and `product/Export.md` — historical-data portability workflows.
 - `product/Notifications.md` — reminder and notification behaviour.
 
@@ -37,3 +40,4 @@ Technology decisions and development conventions.
 - `engineering/TechDecisions.md` — active technical decisions.
 - `engineering/DecisionLog.md` — decision history.
 - `engineering/CodingStandards.md` — code, test, and documentation standards.
+- `engineering/RepositoryStructure.md` — planned React/Firebase source layout.

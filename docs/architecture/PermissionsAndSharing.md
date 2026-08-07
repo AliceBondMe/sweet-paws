@@ -32,7 +32,7 @@ Sharing is deferred from the MVP. When introduced, the expected role model is:
 | --- | --- |
 | Owner | Manage pet, memberships, settings, data export, archive, and all journal data. |
 | Caregiver/editor | Read pet data and create/edit journal data within the agreed policy; cannot manage ownership or members. |
-| Viewer | Read journal and dashboard data; cannot change it. |
+| Viewer | Read Journal and Reports data; cannot change it. |
 | Veterinarian | A deliberately designed read-only role or time-limited share, not a shortcut around membership rules. |
 
 Exact edit/delete restrictions, invite flow, expiry, and activity/audit history are future product decisions. They must be finalised before these roles are exposed.

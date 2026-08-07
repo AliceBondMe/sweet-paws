@@ -6,7 +6,7 @@ Reminders help an owner remember planned care. They are not evidence that insuli
 
 ## MVP scope
 
-The MVP stores reminders and shows the next reminder in the dashboard and relevant pet views. A reminder supports a title, optional care category, scheduled time, recurrence or one-time schedule, pet timezone, active state, and user-facing status.
+The MVP stores reminders and shows upcoming reminders on the dedicated Reminders page and relevant pet views. A reminder supports a title, optional care category, scheduled time, recurrence or one-time schedule, pet timezone, active state, and user-facing status.
 
 The product may request browser notification permission only after explaining its purpose and receiving a user action. Notification permission must never be assumed.
 

@@ -14,7 +14,7 @@ These flows define the expected behaviour of the most important Sweet Paws journ
 4. The user selects glucose and weight display units.
 5. The user may enter initial weight and its measurement time, or skip it if unknown.
 6. The app creates the pet and, when supplied, the initial weight as a normal journal event.
-7. The user arrives at that pet's Dashboard with clear next actions.
+7. The user arrives at that pet's Journal with clear next actions.
 
 **Success:** The owner can record care without ambiguous timezone or unit defaults.
 
@@ -22,7 +22,7 @@ These flows define the expected behaviour of the most important Sweet Paws journ
 
 **Goal:** Record related care quickly while it happens.
 
-1. From Dashboard or Journal, the owner chooses Routine Entry.
+1. From Journal, the owner chooses Routine Entry.
 2. The card-based form presents glucose, insulin, feeding, and optional medication/note sections together.
 3. The owner enters relevant values; the routine time defaults to now in the selected pet's home timezone.
 4. The owner can adjust the shared time or an individual event time.
@@ -103,7 +103,7 @@ These flows define the expected behaviour of the most important Sweet Paws journ
 
 **Goal:** Keep an owner in control of their data.
 
-1. The owner opens Export.
+1. The owner opens the Export modal from Journal.
 2. For CSV, they select pet, date range, and event types.
 3. For JSON backup, they review that the export contains complete account/pet data and is sensitive.
 4. The app generates the file or clearly reports an error.
@@ -116,7 +116,7 @@ These flows define the expected behaviour of the most important Sweet Paws journ
 **Goal:** Plan care without treating a prompt as evidence of care.
 
 1. The owner opens Reminders and creates a one-time or recurring reminder in the pet's home timezone.
-2. The Dashboard displays the next occurrence.
+2. The Reminders page displays the next occurrence; a future Journal summary may surface it without replacing reminder management.
 3. If the owner opts in and the platform supports it, the app may request notification permission.
 4. When prompted, the owner can open an appropriate logging workflow.
 5. Recording care creates a normal journal event; dismissing a reminder does not create one.
