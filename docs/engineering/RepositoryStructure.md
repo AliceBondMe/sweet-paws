@@ -2,9 +2,11 @@
 
 ## Purpose
 
-This structure keeps frontend features and backend layers understandable while preserving repository abstractions around persistence. It is a target for implementation, not a requirement to generate empty folders in advance.
+Sweet Paws uses two separate code repositories: this frontend repository and a companion backend repository. This document keeps the full-stack architecture visible here while defining the source structure that belongs to each repository.
 
-## Proposed top-level layout
+The backend documentation remains in this repository for product and architecture coherence, but backend source code, configuration, and deployment live in the companion backend repository.
+
+## Frontend repository (this repository)
 
 ```text
 sweet-paws/
@@ -20,15 +22,6 @@ sweet-paws/
 │  ├─ i18n/
 │  ├─ styles/
 │  └─ test/
-├─ server/                         # Node.js + TypeScript + Express backend
-│  └─ src/
-│     ├─ api/                      # Routes, controllers, middleware, HTTP DTOs
-│     ├─ application/              # Use cases and business logic
-│     ├─ domain/                   # Backend domain types and policies
-│     ├─ repositories/             # Persistence interfaces
-│     ├─ infrastructure/           # MongoDB and external adapters
-│     ├─ config/                   # Server configuration
-│     └─ test/
 ├─ tests/                          # Cross-application tests when needed
 └─ configuration files
 ```
@@ -41,7 +34,27 @@ sweet-paws/
 
 Frontend domain modules do not import React, Express, MongoDB, or CSS. They may share compatible Zod schemas with the backend later only through a deliberate shared-contract decision; a separate shared package is not introduced yet.
 
-## Backend structure
+## Companion backend repository
+
+The separate backend repository owns the Node.js + TypeScript + Express service and its Render deployment. Its internal structure follows the conventional layers defined in `../architecture/BackendArchitecture.md`:
+
+```text
+sweet-paws-backend/
+├─ src/
+│  ├─ api/                         # Routes, controllers, middleware, HTTP DTOs
+│  ├─ application/                 # Use cases and business logic
+│  ├─ domain/                      # Backend domain types and policies
+│  ├─ repositories/                # Persistence interfaces
+│  ├─ infrastructure/              # MongoDB and external adapters
+│  ├─ config/                      # Server configuration
+│  └─ test/
+├─ tests/                          # Integration tests where needed
+└─ configuration files
+```
+
+The frontend and backend repositories communicate through versioned REST API contracts. Neither repository imports source files from the other. Contract changes require coordinated updates to API documentation and compatibility tests.
+
+### Backend layers
 
 ### `server/src/api`
 
@@ -59,35 +72,35 @@ Contains interfaces such as `JournalRepository`, `PetRepository`, `ReminderRepos
 
 Contains MongoDB Atlas connection/configuration, repository implementations, document mappers, indexes/query helpers, and future external-service adapters. This is the only backend layer that imports MongoDB driver types for normal persistence.
 
-## Dependency direction
+## Dependency direction across repositories
 
 ```text
+Frontend repository                 Backend repository
+──────────────────                  ──────────────────
 React features / shared UI
         ↓
 Frontend API repositories
         ↓
-REST API
-        ↓
-Express API/controllers
-        ↓
-Application services
-        ↓
-Backend repository interfaces
-        ↓
-MongoDB infrastructure
+   HTTPS REST API  ─────────────→   Express API/controllers
+                                         ↓
+                                    Application services
+                                         ↓
+                                    Backend repository interfaces
+                                         ↓
+                                    MongoDB infrastructure
 ```
 
 Dependencies move downward. UI does not depend on MongoDB; application services do not depend on Express or MongoDB; MongoDB implementations do not leak database types upward.
 
 ## Testing
 
-- Frontend unit/feature tests live beside their owners and use Vitest/React Testing Library.
-- Backend unit tests cover application services and domain policies.
-- Backend integration tests cover Express endpoints, authorisation, repository behaviour, and MongoDB queries using isolated test data.
-- Cross-feature/end-to-end tests are added under `tests/` only when a concrete need arises.
+- Frontend unit/feature tests live in this repository beside their owners and use Vitest/React Testing Library.
+- Backend unit and integration tests live in the companion repository.
+- API compatibility/contract tests are added to the owning repository, with coordinated coverage when endpoint changes affect the frontend.
+- Cross-feature/end-to-end tests are added only when a concrete need arises and may live in either repository by agreement.
 
 ## Deferred structure
 
 - No separate API gateway, worker service, message queue, or microservice is created for the MVP.
-- No shared-package/monorepo tooling is introduced until frontend/backend contract duplication becomes a demonstrated problem.
+- The frontend and backend are intentionally not a monorepo. A shared contract package is not introduced until duplicate frontend/backend contract definitions become a demonstrated problem.
 - Integrations such as scheduled reminders, Telegram, PDF generation, or AI remain backend features added only when approved.

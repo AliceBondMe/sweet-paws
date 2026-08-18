@@ -1,6 +1,6 @@
 # Sweet Paws Documentation
 
-This documentation is organised by the question each document answers.
+This documentation is organised by the question each document answers. It remains complete here even though the Node.js/Express backend source lives in a separate companion repository.
 
 ## Product
 

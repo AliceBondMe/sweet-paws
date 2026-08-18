@@ -55,6 +55,13 @@ The decision log preserves the history of material product and architecture choi
 - **Reason:** Keep database access and authorisation on the server while using familiar controller, application-service, and repository boundaries.
 - **Consequences:** The React app communicates only with the backend API; the browser never connects directly to MongoDB. Repository abstractions remain in both frontend and backend layers.
 
+### DL-008 — Separate frontend and backend repositories
+
+- **Status:** Accepted
+- **Decision:** Keep React frontend source in this repository and Node.js/Express backend source in a separate companion repository.
+- **Reason:** Keep frontend and backend deployment/ownership independent while preserving a clear REST API integration boundary.
+- **Consequences:** Backend architecture documentation remains here for product coherence; source code, environment configuration, and deployment automation remain in the backend repository. API contract changes require coordinated updates.
+
 ## Entry template
 
 ```md

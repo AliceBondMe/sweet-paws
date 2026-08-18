@@ -23,7 +23,7 @@ This document records the planned MVP technology stack and each part's responsib
 | Forms | React Hook Form | Performant form state and submission handling. |
 | Validation | Zod | Shared, explicit validation schemas and typed form data. |
 | Internationalisation | i18next and react-i18next | English and Ukrainian UI translations, with room for further locales. |
-| Backend | Node.js, TypeScript, Express | REST API, authentication/authorisation, application services, and integrations. |
+| Backend (companion repository) | Node.js, TypeScript, Express | REST API, authentication/authorisation, application services, and integrations. |
 | Database | MongoDB Atlas | Operational storage for pets, journals, reminders, and preferences. |
 | Backend hosting | Render free tier initially | Planned deployment host for the Node/Express service. |
 | Frontend hosting | Free-tier static hosting, provider to be selected | Delivery of the Vite PWA build. |
@@ -65,9 +65,9 @@ The MVP supports English and Ukrainian through i18next and react-i18next. User-f
 
 ### Node.js, TypeScript, and Express
 
-The backend is a Node.js + TypeScript + Express service. It exposes a REST API, performs authentication and authorisation, runs application/business logic, and invokes repositories. Controllers remain thin; MongoDB access lives behind repository implementations.
+The companion backend repository contains a Node.js + TypeScript + Express service. It exposes a REST API, performs authentication and authorisation, runs application/business logic, and invokes repositories. Controllers remain thin; MongoDB access lives behind repository implementations.
 
-The React frontend communicates with this API for all standard application operations. There is no direct browser-to-database access.
+The React frontend communicates with this API for all standard application operations. The REST contract is the only integration boundary between repositories; there is no direct browser-to-database access or source-code sharing.
 
 ### MongoDB Atlas
 

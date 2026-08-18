@@ -24,6 +24,7 @@ This document records active architectural decisions and their rationale. It is 
 | TD-016 | Treat file/object storage as optional in the MVP. | Accepted | The initial journal does not require attachment storage. |
 | TD-017 | Provide complete versioned JSON export for backup and portability. | Accepted | Gives users control over data and reduces practical vendor lock-in. |
 | TD-018 | Avoid Redux unless a demonstrated need arises. | Accepted | Context, custom hooks, and API-backed feature state are adequate for the planned MVP. |
+| TD-019 | Keep frontend and backend source in separate repositories. | Accepted | Separates deployment and ownership while retaining a REST API contract as the explicit integration boundary. |
 
 ## Decision process
 

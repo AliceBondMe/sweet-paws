@@ -2,9 +2,9 @@
 
 ## Guiding principle
 
-Sweet Paws is a conventional full-stack application. The React frontend communicates with a REST API; the API is the only application layer that communicates with MongoDB Atlas.
+Sweet Paws is a conventional full-stack application split across two repositories. The React frontend repository communicates with the companion backend repository through a REST API; the API is the only application layer that communicates with MongoDB Atlas.
 
-This protects database credentials and authorisation logic from the browser, while keeping the system small enough for the MVP. No additional infrastructure is introduced unless a concrete feature needs it.
+This protects database credentials and authorisation logic from the browser, while keeping the system small enough for the MVP. No additional infrastructure is introduced unless a concrete feature needs it. The complete architecture documentation remains in the frontend repository even though backend source code does not.
 
 ## Goals
 
@@ -18,16 +18,16 @@ This protects database credentials and authorisation logic from the browser, whi
 ## Architecture
 
 ```text
-React UI and feature hooks
+Frontend repository: React UI and feature hooks
         |
         v
 Frontend API clients / repositories
         |
         v
-HTTPS REST API
+HTTPS REST API boundary
         |
         v
-Express controllers and middleware
+Backend repository: Express controllers and middleware
         |
         v
 Application services / use cases
@@ -67,7 +67,7 @@ MongoDB Atlas connection setup, repository implementations, configuration loadin
 
 ## Standard application operations
 
-The React app uses the REST API for standard operations:
+The React app uses the REST API for standard operations. API contracts are the integration boundary between the two repositories:
 
 - Create, edit, and delete journal events.
 - Load/filter/paginate journals.
@@ -93,7 +93,7 @@ Client-side route guards and hidden controls improve UX only; backend authorisat
 
 ## Hosting and deployment
 
-The backend is a Node.js + TypeScript + Express service, initially planned for Render's free tier. Render is an initial hosting choice, not a pricing guarantee.
+The companion backend repository contains the Node.js + TypeScript + Express service, initially planned for Render's free tier. Render is an initial hosting choice, not a pricing guarantee.
 
 The frontend is a static Vite/PWA build hosted on a free-tier static hosting provider selected when deployment begins. It communicates with the backend through an environment-configured API base URL.
 

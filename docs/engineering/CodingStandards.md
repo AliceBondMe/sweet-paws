@@ -2,7 +2,7 @@
 
 ## Purpose
 
-These standards keep Sweet Paws understandable, safe to change, and consistent as the product grows. They apply to frontend/backend code, tests, deployment configuration, and documentation.
+These standards keep Sweet Paws understandable, safe to change, and consistent as the product grows. They apply to frontend code in this repository and to coordinated backend/API changes in the companion backend repository.
 
 ## Language and formatting
 
@@ -51,6 +51,6 @@ These standards keep Sweet Paws understandable, safe to change, and consistent a
 
 ## Documentation
 
-- Update affected documentation in the same change as a material product or architecture decision.
+- Update affected documentation in this repository in the same change as a material product or architecture decision, including coordinated REST API contract changes.
 - Record material decisions in `DecisionLog.md`; keep `TechDecisions.md` current.
 - Link requirements to domain contracts when a change affects stored data, timezone handling, import/export, or permissions.
