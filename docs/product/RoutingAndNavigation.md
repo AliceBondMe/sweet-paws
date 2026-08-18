@@ -16,7 +16,7 @@ This document defines route ownership, navigation behaviour, and return-state ru
 
 ## Selected-pet route context
 
-Every pet-workspace route is explicitly tied to a pet identifier in navigation state/URL. The application validates membership through repository data and Firestore Security Rules before showing pet data.
+Every pet-workspace route is explicitly tied to a pet identifier in navigation state/URL. The application validates membership through backend API responses; the backend independently enforces authorisation before returning pet data.
 
 - An invalid, archived, or unauthorised pet context opens an appropriate safe state rather than a blank page.
 - The selected pet is persisted as a convenience only; it is never trusted as authorisation.

@@ -8,7 +8,7 @@ This is a planning inventory, not a requirement to build a design-system package
 
 - Reuse stable behaviour and semantics, not merely similar markup.
 - Keep feature-specific composition close to the feature.
-- Do not make generic components aware of Firestore, repositories, or event persistence.
+- Do not make generic components aware of API clients, repositories, or event persistence.
 - Create/Edit event forms share one event-form component and validation contract.
 - A component becomes shared only after at least two real consumers or a clear cross-cutting accessibility need.
 
@@ -87,6 +87,6 @@ Chart implementation must preserve missing data and display `Hi` as a non-numeri
 - A universal “data table” for both Journal and Batch Entry.
 - A generic form builder.
 - A large internal design-system package.
-- Firebase-aware UI components.
+- Database-aware UI components.
 
 These would hide meaningful differences between medical timeline review, real-time routine entry, and desktop historical transcription.

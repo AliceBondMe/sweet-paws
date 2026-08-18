@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the user-facing contract for offline behaviour. Sweet Paws may use Firestore's local persistence, but it must not treat local storage as proof that a write has reached the server.
+This document defines the user-facing contract for offline behaviour. Browser storage may queue work locally, but it must not be treated as proof that a write has reached the backend API and database.
 
 ## MVP goal
 
@@ -22,7 +22,7 @@ Every user-initiated write has a visible lifecycle:
 
 1. **Editing:** unsaved values exist only in the form.
 2. **Queued/pending:** the local application accepted the write but server acknowledgement has not arrived.
-3. **Synchronised:** Firestore confirmed the write.
+3. **Synchronised:** the backend API confirmed the write.
 4. **Failed:** the write could not be accepted or synchronised; the app retains sufficient context to let the user retry or correct it.
 
 Pending is not equivalent to confirmed. The application must not silently present an offline entry as permanently saved.
@@ -84,4 +84,4 @@ Offline testing includes:
 - Exact conflict-resolution UI before multi-user sharing.
 - Which edits may be queued offline versus requiring confirmation online.
 - Cache retention/eviction behaviour and supported-browser policy.
-- Whether a user may explicitly keep a local draft outside Firestore persistence.
+- Whether a user may explicitly keep a local draft outside the normal sync queue.

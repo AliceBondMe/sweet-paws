@@ -6,8 +6,8 @@ This document separates identity, authorisation, and future sharing. It gives th
 
 ## Core terms
 
-- **Authentication:** Firebase Authentication establishes the signed-in user's identity.
-- **Authorisation:** Firestore Security Rules determine whether that identity can perform an action on a pet and its data.
+- **Authentication:** The backend establishes the signed-in user's identity.
+- **Authorisation:** Backend middleware and application services determine whether that identity can perform an action on a pet and its data.
 - **Membership:** A pet-scoped relationship that grants a user an allowed role.
 - **Owner:** The user who creates the pet and initially controls its membership.
 
@@ -47,11 +47,11 @@ Exact edit/delete restrictions, invite flow, expiry, and activity/audit history 
 
 ## Security requirements
 
-- Firestore Security Rules enforce membership checks for pet documents and every pet-scoped subcollection.
+- Backend middleware and application services enforce membership checks for every pet-scoped request.
 - The client must not rely on hidden buttons or route guards as a security control.
 - Users cannot create their own elevated membership, alter another owner's membership, or reassign an event to a pet they cannot access.
 - Repository methods require an authenticated user context and expose authorisation failures clearly without leaking another pet's data.
-- Future share links must be expiring, revocable, minimally scoped, and implemented as a distinct access model—not as public Firestore read access.
+- Future share links must be expiring, revocable, minimally scoped, and implemented as a distinct access model—not as unauthenticated API access.
 
 ## Privacy implications
 

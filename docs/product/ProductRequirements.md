@@ -169,9 +169,9 @@ CSV import accepts one documented Sweet Paws CSV format and follows this flow: s
 - Keyboard-accessible controls, visible focus states, adequate colour contrast, and text alternatives for icons.
 - The app must be usable in English and Ukrainian; no date, time, or unit format may be hardcoded in UI text.
 - The app must show its online/offline and pending-sync state in a comprehensible way.
-- Sensitive data must be accessible only to authorised users under Firebase security rules.
+- Sensitive data must be accessible only to authorised users through backend authentication and authorisation.
 - Errors must be logged for diagnosis without exposing private journal content in user-visible messages.
-- The application should be designed so that a typical household (one or a few pets shared by a small number of users, such as family members and a veterinarian) can use it comfortably within Firebase's free tier under normal usage patterns. This is a design objective, not a guarantee about Firebase pricing or quotas.
+- The application should be designed so that a typical household (one or a few pets shared by a small number of users, such as family members and a veterinarian) can use it comfortably within relevant MongoDB Atlas and Render free-tier limits under normal usage patterns. This is a design objective, not a guarantee about provider pricing or quotas.
 
 ## Acceptance scenarios
 

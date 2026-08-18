@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Exports give users control of their pet data and produce useful records for their own review or veterinary discussions. Export data is generated from domain models through repositories, not from an unfiltered raw Firestore dump.
+Exports give users control of their pet data and produce useful records for their own review or veterinary discussions. Export data is generated from domain models through repositories, not from an unfiltered raw database dump.
 
 ## MVP scope
 
@@ -45,7 +45,7 @@ The exact restore/import policy is a future decision. The JSON schema is version
 - Only an authorised owner may request a complete data export for a pet or their account.
 - Export files are sensitive and the interface warns users to store/share them carefully.
 - The MVP performs small exports client-side where appropriate. Large, protected, or generated-report exports may introduce narrow server-side processing later.
-- The application does not retain export files in Firebase Storage in the MVP.
+- The application does not retain export files in third-party object storage in the MVP.
 
 ## Correctness requirements
 

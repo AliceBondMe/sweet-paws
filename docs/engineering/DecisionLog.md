@@ -36,17 +36,24 @@ The decision log preserves the history of material product and architecture choi
 
 ### DL-005 — Firebase BaaS MVP, no custom backend by default
 
-- **Status:** Accepted
-- **Decision:** Standard application operations communicate directly with Firestore through repositories; Cloud Functions are optional later infrastructure.
-- **Reason:** This reduces operational complexity without sacrificing security when backed by strong Firestore Security Rules.
-- **Consequences:** Repository and rules design are core work; functions are introduced only for trusted execution, scheduling, or integrations.
+- **Status:** Superseded by DL-007
+- **Decision:** Standard application operations communicated directly with Firestore through repositories; Cloud Functions were optional later infrastructure.
+- **Reason:** This was initially chosen to reduce operational complexity.
+- **Consequences:** Replaced by a conventional backend/API architecture before implementation.
 
 ### DL-006 — JSON backup and portability
 
 - **Status:** Accepted
 - **Decision:** Support complete, versioned JSON export of user data.
-- **Reason:** Users need backups and the product should not trap their history in one Firebase installation.
-- **Consequences:** Exports use domain data rather than raw Firestore documents and must preserve units/time context.
+- **Reason:** Users need backups and the product should not trap their history in one database installation.
+- **Consequences:** Exports use domain data rather than raw database documents and must preserve units/time context.
+
+### DL-007 — Conventional REST backend with MongoDB Atlas
+
+- **Status:** Accepted
+- **Decision:** Replace the Firebase BaaS architecture with a Node.js + TypeScript + Express backend, REST API, and MongoDB Atlas database. Render is the planned initial backend host.
+- **Reason:** Keep database access and authorisation on the server while using familiar controller, application-service, and repository boundaries.
+- **Consequences:** The React app communicates only with the backend API; the browser never connects directly to MongoDB. Repository abstractions remain in both frontend and backend layers.
 
 ## Entry template
 

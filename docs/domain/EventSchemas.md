@@ -2,7 +2,7 @@
 
 ## Status
 
-This is the canonical domain contract for the MVP. Field names are conceptual rather than implementation code; Firestore structure may refine nesting and indexing without changing their meaning.
+This is the canonical domain contract for the MVP. Field names are conceptual rather than implementation code; database document structure may refine storage and indexing without changing their meaning.
 
 ## Shared event envelope
 

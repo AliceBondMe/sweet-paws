@@ -16,7 +16,7 @@ Reliable delivery while the PWA is closed, the device is asleep, or the browser 
 
 Therefore:
 
-- In-app reminder display is part of the direct-to-Firestore MVP.
+- In-app reminder display is part of the standard React-to-REST-API MVP.
 - Browser/device notifications are an enhancement dependent on platform permissions and capabilities.
 - Reliable scheduled push delivery requires trusted scheduled infrastructure, such as a narrowly scoped Cloud Function, and is introduced only if that feature is committed.
 - Telegram delivery is a future optional integration and likewise requires server-side webhook/scheduling infrastructure.
